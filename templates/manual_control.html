@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual Control</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        .button {
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+{% include 'header.html' %}
+    <div class="container">
+        <h1>Manual Control</h1>
+        <form method="POST" action="/manual_control">
+            <button class="button" type="submit" name="action" value="on">Turn Sprinkler On</button>
+            <button class="button" type="submit" name="action" value="off">Turn Sprinkler Off</button>
+            <button class="button" type="submit" name="action" value="fill_tank">Fill Water Tank</button>
+            <button class="button" type="submit" name="action" value="stop_tank">Stop Filling Tank</button>
+            <button class="button" type="submit" name="action" value="sprinkler_auto">Set Sprinkler to Auto</button>
+            <button class="button" type="submit" name="action" value="water_tank_auto">Set Water Tank to Auto</button>
+        </form>
+    </div>
+</body>
+</html>

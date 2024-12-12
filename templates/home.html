@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+        }
+        .button {
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .status-info {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    {% include 'header.html' %}
+    <div class="container">
+        <h1>Welcome to the Home Page</h1>
+        <h2>Current System Status:</h2>
+
+        <div class="status-info">
+            <p>Temperature: {{ current_temp }}°C</p>
+            <p>Air Humidity: {{ current_air_humidity}}%</p>
+            <p>Ground Humidity: {{ current_ground_humidity}}%</p>
+            <p>Sprinkler State: {{ sprinkler_state }}</p>
+            <p>Water Level: {{ water_level}}%</p>
+            <p>Water Pump State: {{ water_pump_state }}</p>
+            <p>Sprinkler Automatic Mode: {{ 'Disabled' if sprinkler_manual_mode else 'Enabled' }}</p>
+            <p>Water Tank Automatic Mode: {{ 'Disabled' if water_tank_manual_mode else 'Enabled' }}</p>
+        </div>
+
+        <a href="/change_config"><button class="button">Change Configuration</button></a>
+        <a href="/statistics"><button class="button">Statistics</button></a>
+        <a href="/manual_control"><button class="button">Manual Control</button></a>
+    </div>
+</body>
+</html>
